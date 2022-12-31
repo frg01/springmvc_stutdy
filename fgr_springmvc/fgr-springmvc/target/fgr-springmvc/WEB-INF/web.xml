@@ -1,0 +1,26 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!--配置FgrDispatcherServlet 前端控制器-->
+  <servlet>
+    <servlet-name>FgrDispatcherServlet</servlet-name>
+    <servlet-class>com.hspedu.fgrspringmvc.servlet.FgrDispatcherServlet</servlet-class>
+    <!--给FgrDispatcherServlet配置参数,指定要操作的spring容器配置文件-->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:fgrspringmvc.xml</param-value>
+    </init-param>
+    <!--tomcat启动时就自动加载-->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FgrDispatcherServlet</servlet-name>
+    <!--FgrDispatcherServlet前端控制器,拦截所有请求-->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+</web-app>
